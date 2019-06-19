@@ -1,0 +1,185 @@
+[
+    {
+        "id": "14283475.c538ac",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fb807f99.d6c15",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.eclipse.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "5f505c67.8cc604",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "professor",
+        "broker": "10.20.34.31",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "3d613960.cc5e26",
+        "type": "inject",
+        "z": "14283475.c538ac",
+        "name": "LIGAR",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "2cc42541.98e16a"
+            ]
+        ]
+    },
+    {
+        "id": "c6dd7cc6.1c299",
+        "type": "inject",
+        "z": "14283475.c538ac",
+        "name": "DESLIGAR",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "818acacb.176018"
+            ]
+        ]
+    },
+    {
+        "id": "2cc42541.98e16a",
+        "type": "http request",
+        "z": "14283475.c538ac",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "url": "http://localhost:3000/led/ligar",
+        "tls": "",
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "6b2b803f.21bd1"
+            ]
+        ]
+    },
+    {
+        "id": "818acacb.176018",
+        "type": "http request",
+        "z": "14283475.c538ac",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "url": "http://localhost:3000/led/desligar",
+        "tls": "",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "f3f74eda.8313"
+            ]
+        ]
+    },
+    {
+        "id": "6b2b803f.21bd1",
+        "type": "debug",
+        "z": "14283475.c538ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 560,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f3f74eda.8313",
+        "type": "debug",
+        "z": "14283475.c538ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8f0f50c4.5ca27",
+        "type": "mqtt in",
+        "z": "14283475.c538ac",
+        "name": "",
+        "topic": "vaga02",
+        "qos": "2",
+        "broker": "5f505c67.8cc604",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "799f0fa2.89985"
+            ]
+        ]
+    },
+    {
+        "id": "799f0fa2.89985",
+        "type": "debug",
+        "z": "14283475.c538ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 430,
+        "y": 340,
+        "wires": []
+    }
+]
